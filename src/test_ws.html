@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>WS Test</title>
+  </head>
+  <body>
+    <h1>Teste de WebSocket</h1>
+    <script>
+      const ws = new WebSocket('ws://localhost:4000/ws');
+
+      ws.onopen = () => {
+        console.log('WS aberto com sucesso!');
+      };
+
+      ws.onmessage = (event) => {
+        console.log('Mensagem recebida:', event.data);
+      };
+
+      ws.onerror = (error) => {
+        console.error('WS erro:', error);
+      };
+
+      ws.onclose = (evt) => {
+        console.warn('WS fechado:', evt.code, evt.reason);
+      };
+    </script>
+  </body>
+</html>
